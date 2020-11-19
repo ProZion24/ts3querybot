@@ -13,9 +13,9 @@ public class TeamspeakConfig {
     private String user;
     private String password;
     private String nickname;
-    private int port;
+    private int serverPort;
     private int channelID;
-    private BotFloodRate botFloodRate;
+    private BotFloodRate floodRate;
 
     public ServerAddress getAddress() {
         return address;
@@ -34,7 +34,7 @@ public class TeamspeakConfig {
     }
 
     public int getPort() {
-        return port;
+        return serverPort;
     }
 
     public int getChannelID() {
@@ -42,6 +42,6 @@ public class TeamspeakConfig {
     }
 
     public BotFloodRate getFloodRate() {
-        return botFloodRate;
+        return floodRate;
     }
 }

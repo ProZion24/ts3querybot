@@ -14,19 +14,20 @@ import software.zion.ts3bot.configs.Config;
 public class Bot {
     private final TS3Api ts3Api;
     private final Config config;
-    private Channel privateChannel;
+    private Channel defaultChannel;
 
     public Bot(Config config) {
         this.config = config;
-        final TS3Config ts3Config = new TS3Config();
-        ts3Config.setHost(config.getTeamspeakConfig().getAddress().getHost());
-        ts3Config.setQueryPort(config.getTeamspeakConfig().getPort());
-        ts3Config.setFloodRate(TS3Query.FloodRate.custom(config.getTeamspeakConfig().getFloodRate().getFloodRate()));
-        final TS3Query query = new TS3Query(ts3Config);
+        final TS3Config ts3conf = new TS3Config();
+        ts3conf.setHost(config.getTeamspeakConfig().getAddress().getHost());
+        ts3conf.setQueryPort(config.getTeamspeakConfig().getAddress().getPort());
+        ts3conf.setFloodRate(TS3Query.FloodRate.custom(config.getTeamspeakConfig().getFloodRate().getFloodRate()));
+
+        final TS3Query query = new TS3Query(ts3conf);
 
         query.connect();
-        ts3Api = query.getApi();
 
+        ts3Api = query.getApi();
         ts3Api.login(config.getTeamspeakConfig().getUser(), config.getTeamspeakConfig().getPassword());
         ts3Api.selectVirtualServerByPort(config.getTeamspeakConfig().getPort());
         ts3Api.setNickname(config.getTeamspeakConfig().getNickname());

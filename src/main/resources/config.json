@@ -1,0 +1,16 @@
+{
+  "teamspeakConfig": {
+    "address": {
+      "host": "127.0.0.1",
+      "port": 9987
+    },
+    "user": "serveradmin",
+    "password": "querypassword",
+    "nickname": "yeetbot",
+    "port": 3306,
+    "floodRate": "UNLIMITED"
+  },
+  "propertiesConfig": {
+
+  }
+}
