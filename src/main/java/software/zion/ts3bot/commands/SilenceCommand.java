@@ -11,7 +11,7 @@ import software.zion.ts3bot.commandmanager.CommandManager;
  */
 public class SilenceCommand extends Command {
 
-    private Integer sGId;
+    private final Integer sGId;
 
     /**
      *
