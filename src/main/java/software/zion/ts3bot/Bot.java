@@ -3,8 +3,12 @@ package software.zion.ts3bot;
 import com.github.theholywaffle.teamspeak3.TS3Api;
 import com.github.theholywaffle.teamspeak3.TS3Config;
 import com.github.theholywaffle.teamspeak3.TS3Query;
+import com.github.theholywaffle.teamspeak3.api.event.TS3EventType;
 import com.github.theholywaffle.teamspeak3.api.wrapper.Channel;
+import software.zion.ts3bot.commandmanager.CommandManager;
 import software.zion.ts3bot.configs.Config;
+import software.zion.ts3bot.usermanager.User;
+import software.zion.ts3bot.usermanager.UserManager;
 
 /**
  * @author Zion
@@ -14,8 +18,14 @@ import software.zion.ts3bot.configs.Config;
 public class Bot {
     private final TS3Api ts3Api;
     private final Config config;
+    private final CommandManager commandManager;
+    private final UserManager userManager;
     private Channel defaultChannel;
 
+    /**
+     *
+     * @param config
+     */
     public Bot(Config config) {
         this.config = config;
         final TS3Config ts3conf = new TS3Config();
@@ -32,6 +42,14 @@ public class Bot {
         ts3Api.selectVirtualServerByPort(config.getTeamspeakConfig().getPort());
         ts3Api.setNickname(config.getTeamspeakConfig().getNickname());
         System.out.println("Bot connected");
+
+        this.userManager = new UserManager(this);
+        this.commandManager = new CommandManager(userManager);
+
+        ts3Api.getChannels().forEach(c -> {if (c.isDefault()) defaultChannel = c;});
+        ts3Api.registerAllEvents();
+        ts3Api.registerEvent(TS3EventType.TEXT_PRIVATE);
+        ts3Api.addTS3Listeners(new BotTs3Listener(this));
     }
 
     public Config getConfig() {
@@ -40,5 +58,13 @@ public class Bot {
 
     public TS3Api getTs3Api() {
         return ts3Api;
+    }
+
+    public CommandManager getCommandManager() {
+        return commandManager;
+    }
+
+    public UserManager getUserManager() {
+        return userManager;
     }
 }

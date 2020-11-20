@@ -1,16 +1,22 @@
 {
   "teamspeakConfig": {
     "address": {
-      "host": "127.0.0.1",
-      "port": 9987
+      "host": "2.59.134.60",
+      "port": 10011
     },
     "user": "serveradmin",
-    "password": "querypassword",
+    "password": "5IKNHdF3",
     "nickname": "yeetbot",
-    "port": 3306,
+    "serverPort": 9987,
     "floodRate": "UNLIMITED"
   },
   "propertiesConfig": {
-
+    "groups": {
+      "silence": 50
+    },
+    "supportGroups": {
+      "Supporter": 123
+    },
+    "serverName": "example.net"
   }
 }
