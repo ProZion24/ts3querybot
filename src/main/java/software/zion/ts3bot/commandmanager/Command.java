@@ -3,6 +3,7 @@ package software.zion.ts3bot.commandmanager;
 import com.github.theholywaffle.teamspeak3.TS3Api;
 import com.github.theholywaffle.teamspeak3.api.wrapper.ClientInfo;
 import software.zion.ts3bot.Bot;
+import software.zion.ts3bot.configs.Config;
 import software.zion.ts3bot.usermanager.UserManager;
 
 /**
@@ -69,5 +70,9 @@ public abstract  class Command {
 
     public TS3Api getApi() {
         return getBot().getTs3Api();
+    }
+
+    public Config getConfig() {
+        return getUserManager().getBot().getConfig();
     }
 }

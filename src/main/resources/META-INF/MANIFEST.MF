@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: software.zion.ts3bot.TS3Bot
+

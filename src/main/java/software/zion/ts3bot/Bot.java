@@ -50,6 +50,7 @@ public class Bot {
         ts3Api.registerAllEvents();
         ts3Api.registerEvent(TS3EventType.TEXT_PRIVATE);
         ts3Api.addTS3Listeners(new BotTs3Listener(this));
+        System.out.println("Bot started");
     }
 
     public Config getConfig() {
