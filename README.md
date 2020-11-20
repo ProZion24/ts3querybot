@@ -15,7 +15,7 @@ The bot is fully operable via chat and the webinterface.
 To get started write `!help` to the bot.
 
 ## Download
-* Download the bot from [released](https://github.com/ProZion24/ts3querybot/releases/)
+* Download the bot from [releases](https://github.com/ProZion24/ts3querybot/releases/)
 
 ## Install
 
