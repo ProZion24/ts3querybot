@@ -38,4 +38,4 @@ OpenJDK 64-Bit Server VM (build 25.242-b09, mixed mode)
 1. then you have to execute `java -jar ts3querybot.jar`
 ## TODO 
 * Webinterface
-* Fix NullpointerException in SupportCommand
+* Fix NullPointerException in SupportCommand
